@@ -40,10 +40,10 @@ switch ($cmd) {
 
 //------------------------------------------------------------------------------------------------
     case 'cmd_stat':
-        $_SESSION['stat']['f_from']   = $_POST['f_from'] ?? ''; 
-        $_SESSION['stat']['f_to']     = $_POST['f_to'] ?? ''; 
-        $_SESSION['stat']['f_user']   = $_POST['f_user'] ?? ''; 
-        $_SESSION['stat']['f_action'] = $_POST['f_action'] ?? ''; 
+        $_SESSION['stat']['from']   = $_POST['from'] ?? ''; 
+        $_SESSION['stat']['to']     = $_POST['to'] ?? ''; 
+        $_SESSION['stat']['user']   = $_POST['user'] ?? ''; 
+        $_SESSION['stat']['action'] = $_POST['action'] ?? ''; 
         $response = Lib::create_response('RC_OK','','/views/stat.php',[]); 
         Auth::store_event(Auth::EVT_BTN_CLICK,$_POST['target']);
         break;

@@ -87,4 +87,14 @@ class Auth {
       $db->perform($qstr);
     }
 
+    public static function get_users() : array
+    {
+      $db = Db::get_instance();
+
+      $qstr = "SELECT id, `login`, pass, email, is_admin"
+        . " FROM users ORDER BY id";
+      $db->query($qstr);
+
+      return $db->get_result_array();
+    }
 }
