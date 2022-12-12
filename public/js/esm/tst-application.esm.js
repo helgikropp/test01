@@ -44,7 +44,7 @@ export class TstApplication {
                     });   
             });     
         });
-
+/*
         document.querySelectorAll('a.nav-link[data-cmd]').forEach(el => {
             el.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -62,6 +62,7 @@ export class TstApplication {
             
         return this;
     }
+*/    
 /*
     moveToDlgPlace(dlg) { this._dialogsPlace.appendChild(dlg); }
     initModalWin(queryStr) {

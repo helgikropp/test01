@@ -43,7 +43,10 @@ class Auth {
 
     public static function is_admin_session() : bool
     {
-      return self::is_authenticated() && $_SESSION['user']['is_admin'] === 1;
+      //error_log('===>> 1 '.var_export($_SESSION['user'],true));
+      //$asd = self::is_authenticated() && $_SESSION['user']['is_admin'] === 1;
+      //error_log('===>> 2 '.var_export($asd,true));
+      return self::is_authenticated() && $_SESSION['user']['is_admin'] === '1';
     }    
     
     public static function register(string $uname, string $upass, string $email, int $is_admin) : bool

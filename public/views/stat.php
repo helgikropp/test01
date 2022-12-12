@@ -1,7 +1,7 @@
 
 <?php require_once './layouts/head-main.inc.php'; ?>
 
-<?php \Core\Auth::store_event(\Core\Auth::EVT_PAGE_VIEW,'Page B'); ?>
+<?php \Core\Auth::store_event(\Core\Auth::EVT_PAGE_VIEW,'Stat'); ?>
 
 
 <main class="container" data-page="page-b">

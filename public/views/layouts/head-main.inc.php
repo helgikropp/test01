@@ -2,6 +2,8 @@
   //error_log('=== 1 '.__DIR__.' === '.dirname(__DIR__));
   require_once __DIR__."/../../../inc/init.inc.php";
   use \Core\Auth; 
+  use \Core\Lib; 
+  use \Core\Stat; 
   if(!Auth::is_authenticated()) {
     header('Location: /views/login.php');
     exit;
@@ -42,16 +44,11 @@
     <header class="container">
         <div class="row">
             <div class="col-auto">
-                <!-- img src="{{ mix('images/tgu-logo-h.png') }}" -->
+                <!-- img src="{{ mix('images/logo-h.png') }}" -->
             </div>
             <h5 class="col-auto text-muted">Тестове<br>завдання</h5>  
             <div class="col"></div>  
-            <!-- div class="col-auto cab-lng-switch">
-                <a href="/lng/uk">UK</a>
-                <a href="/lng/en">EN</a>
-                <a href="/lng/ru">RU</a>
-            </div -->  
-            <div class="col-auto">
+             <div class="col-auto">
                 <a id="logout" href="/routes.php">
                     <i class="fa fa-sign-out text-muted" style="font-size:32px;margin-top:6px;" title="Exit"></i>
                 </a>
@@ -74,10 +71,10 @@
                       </li>
                     <?php if(Auth::is_admin_session()) { ?>
                       <li class="nav-item">
-                          <a class="nav-link" href="/routes.php" data-cmd="cmd_stat">Stat</a>
+                          <a class="nav-link" href="/views/stat.php">Stat</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="/routes.php" data-cmd="cmd_report">Report</a>
+                          <a class="nav-link" href="/views/report.php">Report</a>
                       </li>
                     <?php /* } else { ?>
                       <li class="nav-item">

@@ -39,23 +39,22 @@ switch ($cmd) {
         break;
 
 //------------------------------------------------------------------------------------------------
-case 'cmd_click':
-    $response = Lib::create_response('RC_OK','','',[]); 
-    Auth::store_event(Auth::EVT_BTN_CLICK,$_POST['target']);
-    break;
-
+    case 'cmd_stat':
+        $_SESSION['stat']['f_from']   = $_POST['f_from'] ?? ''; 
+        $_SESSION['stat']['f_to']     = $_POST['f_to'] ?? ''; 
+        $_SESSION['stat']['f_user']   = $_POST['f_user'] ?? ''; 
+        $_SESSION['stat']['f_action'] = $_POST['f_action'] ?? ''; 
+        $response = Lib::create_response('RC_OK','','/views/stat.php',[]); 
+        Auth::store_event(Auth::EVT_BTN_CLICK,$_POST['target']);
+        break;
 
 //------------------------------------------------------------------------------------------------
 case 'cmd_download':
     $name = Lib::sanitize($_POST['file_name'],Lib::T_STR);
     $path = __DIR__.'/files/'.$name;
-    //error_log('=== 2 '.);
     if (file_exists($path)) {
-        //Auth::store_event(Auth::EVT_BTN_CLICK,$_POST['target']);
         header('Content-Type: ' . Lib::get_file_mime_type($path));
-        //header('Content-Disposition: inline; filename="'.$name.'"');
         header('Content-Disposition: inline; filename='.$name.";filename*=UTF-8''".urlencode($name));
-//                header('Content-Disposition: inline; filename="'.$name.'"');
         header('Cache-Control: private, max-age=0, must-revalidate');
         header('Pragma: public');
         readfile($path);
