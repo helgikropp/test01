@@ -11,47 +11,49 @@
 
 <main class="container" data-page="stat">
 
-    <form method="post" action="/routes.php">
-        <input type="hidden" name="cmd" value="cmd_stat">
-        <div class="row mb-1">
-            <label class="col-form-label col-md-1">Period</label>
-            <div class="col-md-2">
-                <input type="text" class="form-control" name="from" value="<?= ($flt['from']??'')?>">
+    <div class="row">
+        <form method="post" action="/routes.php">
+            <input type="hidden" name="cmd" value="cmd_stat">
+            <div class="row mb-1">
+                <label class="col-form-label col-md-1">Period</label>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" name="from" value="<?= ($flt['from']??'')?>">
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" name="enddate" value="<?= ($flt['to']??'')?>">
+                </div>            
+                <label class="col-form-label col-md-1">Action</label>
+                <div class="col-md-2">
+                    <select name="type" class="form-select">
+                        <option value="">All</option>
+                    <?php foreach($types as $row) { ?>
+                        <option value="<?= $row['id'] ?>"<?= ($row['id'] === ($flt['action']??'-1') ? ' selected' : '') ?>><?= $row['name'] ?></option>
+                    <?php } ?>
+                    </select>
+                </div>            
+                <label class="col-form-label col-md-1">User</label>
+                <div class="col-md-3">
+                    <select name="user" class="form-select">
+                        <option value="">All</option>
+                    <?php foreach($users as $row) { ?>
+                        <option value="<?= $row['id'] ?>"<?= ($row['id'] === ($flt['user']??'-1') ? ' selected' : '') ?>><?= $row['login'] ?></option>
+                    <?php } ?>
+                    </select>
+                </div>            
             </div>
-            <div class="col-md-2">
-                <input type="text" class="form-control" name="enddate" value="<?= ($flt['to']??'')?>">
-            </div>            
-            <label class="col-form-label col-md-1">Action</label>
-            <div class="col-md-2">
-                <select name="type" class="form-select">
-                    <option value="">All</option>
-                <?php foreach($types as $row) { ?>
-                    <option value="<?= $row['id'] ?>"<?= ($row['id'] === ($flt['action']??'-1') ? ' selected' : '') ?>><?= $row['name'] ?></option>
-                <?php } ?>
-                </select>
-            </div>            
-            <label class="col-form-label col-md-1">User</label>
-            <div class="col-md-3">
-                <select name="user" class="form-select">
-                    <option value="">All</option>
-                <?php foreach($users as $row) { ?>
-                    <option value="<?= $row['id'] ?>"<?= ($row['id'] === ($flt['user']??'-1') ? ' selected' : '') ?>><?= $row['login'] ?></option>
-                <?php } ?>
-                </select>
-            </div>            
-        </div>
 
-        <div class="row mb-2">
-            <div class="col-md-11"></div>
-            <button type="submit" name="set" class="col-md-1 btn btn-success">Show</button>
-        </div>
-    </form>
-
+            <div class="row mb-2">
+                <div class="col-md-11"></div>
+                <button type="submit" name="set" class="col-md-1 btn btn-success">Show</button>
+            </div>
+        </form>
+    </div>
 
     <div class="row">
         <div class="col-3"></div>
         <div class="col-6">
-            <table>
+            <table class="table table-sm table-striped table-hover w-100 caption-top">
+                <caption class="text-center fw-bold">Events</caption>
                 <thead>
                     <tr>
                         <th scope="col">Date</th>
