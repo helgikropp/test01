@@ -140,7 +140,7 @@ class Db
     $this->_reset();
     if($this->f_conn) {
       try{
-        $this->f_result = $this->f_conn->query($qstr);
+        $result = $this->f_conn->query($qstr);
         return true;
       } catch(\Throwable $e) {
         $this->f_err = $e->getTraceAsString();
