@@ -20,7 +20,7 @@ export class TstLogin {
 
           tstFetchPostForm(elForm.action, new FormData(elForm))
             .then( jsonRes => { 
-                tstOnSuccess(jsonRes.code || jsonRes.code).then(() => { tstGoToUrl(jsonRes.goto); });
+                tstOnSuccess(jsonRes.msg || jsonRes.code).then(() => { tstGoToUrl(jsonRes.goto); });
             })
             .catch( error => { 
               tstProcessError(error); 

@@ -13,11 +13,11 @@ switch ($cmd) {
         $uname = trim($_POST['uname']);
         $pwd   = trim($_POST['pwd']);
         if(empty($uname) || empty($pwd)) {
-            $response = Lib::create_response('RC_EMPTY_PARAM','','/vews/login.php',[]); 
+            $response = Lib::create_response('RC_EMPTY_PARAM','','/views/login.php',[]); 
         } else {
             Auth::logon($uname,$pwd);
             if(Auth::is_authenticated()) {
-                $response = Lib::create_response('RC_OK','','/vews/page-a.php',[]); 
+                $response = Lib::create_response('RC_OK','','/views/page-a.php',[]); 
             } else {
                 $response = Lib::create_response('RC_ERR','','',[]); 
             }
@@ -28,7 +28,7 @@ switch ($cmd) {
 //------------------------------------------------------------------------------------------------
     case 'cmd_logout':
         Auth::logout();
-        $response = Lib::create_response('RC_OK','','/vews/login.php',[]); 
+        $response = Lib::create_response('RC_OK','','/views/login.php',[]); 
         Auth::store_event(Auth::EVT_LOGOUT,'');
         break;
 
@@ -46,7 +46,7 @@ case 'cmd_click':
 
 //------------------------------------------------------------------------------------------------
     default:
-        $response = Lib::create_response('RC_CMD_UNKNOWN','','/vews/login.php',[]); 
+        $response = Lib::create_response('RC_CMD_UNKNOWN','','/views/login.php',[]); 
 }
 
 Lib::send_response($response);

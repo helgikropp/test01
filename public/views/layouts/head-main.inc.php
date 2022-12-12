@@ -1,5 +1,6 @@
-<?php session_start() ?>
-<?php
+<?php 
+  require_once "../../../inc/init.inc.php";
+
   use \Core\Auth; 
   if(!Auth::is_authenticated()) {
     header('Location: /views/login.php');
