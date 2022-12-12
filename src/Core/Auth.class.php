@@ -57,8 +57,8 @@ class Auth {
       $upass = Lib::sanitize($upass,Lib::T_STR);
 
       $qstr = "SELECT id"
-      . " FROM users"
-      . " WHERE login='".$uname."' AND pass='".md5(Lib::sanitize($upass,Lib::T_STR))."';";
+        . " FROM users"
+        . " WHERE login='".$uname."' AND pass='".md5(Lib::sanitize($upass,Lib::T_STR))."';";
       $db->query($qstr);
       if(!$db->empty) {
         return false;
@@ -68,7 +68,7 @@ class Auth {
       $is_admin = Lib::sanitize($upass,Lib::T_BIT);
       $qstr = "INSERT INTO users (`login`, pass, email, is_admin)"
       . " VALUES('".$uname."', '".md5($upass)."', '".$email."', ".$is_admin.");";
-      $db->query($qstr);
+      $db->perform($qstr);
 
       return true;
     }
@@ -79,9 +79,9 @@ class Auth {
 
       $event_target = $event_target ? LIb::sanitize($event_target,Lib::T_STR) : '';
 
-      $qstr = "INSERT INTO events (user_id, `type`, 'target')"
-      . " VALUES(".($_SESSION['id']??'0').", '".$event_target."')";
-      $db->query($qstr);
+      $qstr = "INSERT INTO events (user_id, type_id, `target`)"
+        . " VALUES(".($_SESSION['user']['id']??'0').", ".$event_type.",'".$event_target."')";
+      $db->perform($qstr);
     }
 
 }

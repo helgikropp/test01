@@ -3,6 +3,8 @@
 
 export class CustomError extends Error {
     constructor(err) {
+        super();
+
         this.name = 'CustomError';
         if(typeof err === 'object') {
             this.message = err.msg || err.code;

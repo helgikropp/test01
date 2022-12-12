@@ -84,7 +84,6 @@ class Db
   {
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     ['DB_HOST'=>$host, 'DB_NAME'=>$db, 'DB_USER'=>$user, 'DB_PASS'=>$pwd, 'DB_PORT'=>$port] = $this->f_cfg;
-    var_dump($this->f_cfg);
     try{
       $this->f_conn = new \mysqli($host, $user, $pwd, $db, $port);
     } catch(\Throwable $e) {
@@ -107,18 +106,49 @@ class Db
    * Undocumented function
    *
    * @param string $qstr
-   * @return void
+   * @return bool
    */
-  public function query(string $qstr):void
+  public function query(string $qstr):bool
   {
     $this->_reset();
     if($this->f_conn) {
-      $this->f_result = $this->f_conn->query($qstr);
-      $this->f_count  = $this->f_result->num_rows;
-      $this->first();
+      try{
+        $this->f_result = $this->f_conn->query($qstr);
+        $this->f_count  = $this->f_result->num_rows;
+        $this->first();
+        return true;
+      } catch(\Throwable $e) {
+        $this->f_err = $e->getTraceAsString();
+      }
     } else {
       $this->f_err = self::ERR_DB_NO_CONNECT;
     }
+    return false;
+  }
+
+    //----------------------------------------------------------------------------
+  // Non-secure way. For instance only
+  //----------------------------------------------------------------------------
+  /**
+   * Undocumented function
+   *
+   * @param string $qstr
+   * @return bool
+   */
+  public function perform(string $qstr):bool
+  {
+    $this->_reset();
+    if($this->f_conn) {
+      try{
+        $this->f_result = $this->f_conn->query($qstr);
+        return true;
+      } catch(\Throwable $e) {
+        $this->f_err = $e->getTraceAsString();
+      }
+    } else {
+      $this->f_err = self::ERR_DB_NO_CONNECT;
+    }
+    return false;
   }
 
   /**
@@ -167,7 +197,7 @@ class Db
   {
     return $this->empty() 
             ? null
-            : ($this->f_result->fetch_assoc() || null);
+            : ($this->f_result->fetch_assoc() ?: null);
   }
 
   /**

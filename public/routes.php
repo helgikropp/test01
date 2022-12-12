@@ -1,5 +1,6 @@
 <?php
-session_start();
+//session_start();
+require_once "../inc/init.inc.php";
 
 use Core\Lib;
 use Core\Auth;

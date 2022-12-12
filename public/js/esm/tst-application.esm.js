@@ -58,12 +58,11 @@ export class TstApplication {
                         tstProcessError(error); 
                     });   
             });     
-        });
-        
+        });        
             
         return this;
     }
-
+/*
     moveToDlgPlace(dlg) { this._dialogsPlace.appendChild(dlg); }
     initModalWin(queryStr) {
         const modalWin = document.querySelector(queryStr);
@@ -72,6 +71,7 @@ export class TstApplication {
         }
         return modalWin;
     }
+*/    
 
     async loadPageModule() {
         const $main = document.body.querySelector('main');
