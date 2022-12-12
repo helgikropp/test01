@@ -16,16 +16,16 @@ class Stat {
         . " LEFT JOIN event_types t ON t.id = e.type_id"
         . " WHERE 1=1";
 
-        if($filters['from']) {
+        if(!empty($filters['from'])) {
           $qstr .= " AND e.date >= '" . $filters['from'] . "'"; 
         }
-        if($filters['to']) {
+        if(!empty($filters['to'])) {
           $qstr .= " AND e.date <= '" . $filters['to'] . "'"; 
         }
-        if($filters['user']) {
+        if(!empty($filters['user'])) {
           $qstr .= " AND e.user_id = " . $filters['user']; 
         }
-        if($filters['action']) {
+        if(!empty($filters['action'])) {
           $qstr .= " AND e.type_id = " . $filters['action']; 
         }
         $qstr .= " ORDER BY e.date DESC";
