@@ -5,10 +5,16 @@
 
 <main class="container" data-page="page-a">
 
-  <button id="cow" name="cow" class="btn btn-success" style="margin:200px auto;width:200px;">By a cow</button>
+<div class="row" style="margin-top:50px;">
+  <div class="col-4"></div>  
+  <div class="col-4">
+    <button id="cow" name="cow" class="btn btn-success w-100">By a cow</button>
 
-  <!-- div id="txt" name="txt" class="hidden" style="margin:200px auto;width:200px;color:red;">Thank You!</div -->
-  <div id="txt" class="hidden alert alert-success" style="margin-top:200px" role="alert">Thank You!</div>
+    <div id="txt" class="alert alert-success" role="alert" hidden>Thank You!</div>
+  </div>  
+  <div class="col-4"></div>  
+</div>
+
 </main>
 
-<?php require_once './layouts/feet-foot.inc.php'; ?>
+<?php require_once './layouts/feet-main.inc.php'; ?>

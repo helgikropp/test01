@@ -81,10 +81,10 @@ export class TstApplication {
                 case 'login':
                     try { new TstLogin(); } catch (err) {/* libCatchError(err); */ }
                     break;
-                case 'pageA':
+                case 'page-a':
                     try { new TstPageA(); } catch (err) {/* libCatchError(err); */ }
                     break;
-                case 'pageB':
+                case 'page-b':
                     try { new TstPageB(); } catch (err) {/* libCatchError(err); */ }
                     break;
             }

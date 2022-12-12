@@ -6,8 +6,15 @@
 
 <main class="container" data-page="page-b">
 
-    <button id="down" name="down" class="btn btn-success" style="margin:200px auto;width:200px;">Download</button>
+<div class="row" style="margin-top:50px;">
+  <div class="col-4"></div>  
+  <div class="col-4">
+      <button id="down" name="down" class="btn btn-warning w-100">Download</button>
+  </div>  
+  <div class="col-4"></div>  
+</div>
+
 
 </main>
 
-<?php require_once './layouts/feet-foot.inc.php'; ?>
+<?php require_once './layouts/feet-main.inc.php'; ?>

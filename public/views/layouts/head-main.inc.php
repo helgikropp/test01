@@ -1,6 +1,6 @@
 <?php 
-  require_once "../../../inc/init.inc.php";
-
+  //error_log('=== 1 '.__DIR__.' === '.dirname(__DIR__));
+  require_once __DIR__."/../../../inc/init.inc.php";
   use \Core\Auth; 
   if(!Auth::is_authenticated()) {
     header('Location: /views/login.php');

@@ -9,8 +9,8 @@ export class TstPageA {
         const elTxt = document.getElementById('txt');
 
         elBtn.addEventListener('click', function (e) {
-          elTxt.classList.toggle('hidden');
-          elBtn.classList.toggle('hidden');
+          elBtn.hidden = true;
+          elTxt.hidden = false;
           
           tstFetchPostForm('/routes.php',{ cmd: 'cmd_click', target: 'By a cow'});
         });        

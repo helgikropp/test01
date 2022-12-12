@@ -59,4 +59,14 @@ class Lib {
             echo '400 Bad Request';
         }
     }
+
+    public static function get_file_mime_type(string $fileName) : string 
+    {
+        $finfo  = finfo_open(FILEINFO_MIME_TYPE); // возвращает mime-тип
+        $result = finfo_file($finfo, $fileName);
+        finfo_close($finfo);
+        return $result;
+    }
+
+
 }

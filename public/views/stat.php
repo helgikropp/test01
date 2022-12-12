@@ -10,4 +10,4 @@
 
 </main>
 
-<?php require_once './layouts/feet-foot.inc.php'; ?>
+<?php require_once './layouts/feet-ma.inc.php'; ?>
