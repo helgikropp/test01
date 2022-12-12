@@ -1,0 +1,81 @@
+body, html {
+    height: 100%;
+    font-family: var(--font-family-roboto);
+}
+html {
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -ms-overflow-style: scrollbar;
+    -webkit-tap-highlight-color: transparent;
+}
+body {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    /* background-color: #fff; */
+    background: #f2f2f2;
+}
+
+main {
+    max-width: 100%;
+    /* min-height: 100vh; */
+}
+
+.tst-login-row {
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.tst-login-wrap {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 55px 55px 33px 55px;
+    box-shadow: 0 5px 10px 0px rgb(0 0 0 / 10%);
+    margin: 15px;
+}
+
+.tst-login-title {
+    display: block;
+    font-size: 1.2rem;
+    color: #333;
+    /* line-height: 1.2; */
+    text-align: center;
+}
+
+.tst-login-wrap-input {
+    width: 100%;
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin-bottom: 37px;
+}
+
+.tst-login-btn-show-pwd {
+    font-size: 15px;
+    color: #999999;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    right: 0;
+    padding-right: 5px;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+.tst-login-btn-show-pwd:hover { color: #6a7dfe; }
+
+.tst-login-pwd-btn {
+    font-size: 0.88rem;
+    position: absolute;
+    top: 14px;
+    right: 0;
+    color: #999999;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+.tst-login-pwd-btn:hover { color: var(--bs-primary); }

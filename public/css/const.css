@@ -1,0 +1,108 @@
+@charset "UTF-8";
+:root {
+    --font-family-roboto: 'Roboto', sans-serif;
+    /* --font-family-noto: 'Noto Sans', sans-serif;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; */
+
+    --w-extended: 500px;
+    --w-expanded: 600px;
+    --w-medium:   700px;
+    --w-wide:     800px;
+    --w-large:    900px;
+    --w-xlarge:   1000px;
+}
+
+/*----------------------------------------------------------------------------*/
+/*-- MATERIAL DESIGN INPUT ---------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+.tst-md-input-group { position:relative; }
+.tst-md-input-group > input {
+    border-left:none!important;
+    border-top:none!important;
+    border-right:none!important;
+    border-radius: 0;
+    box-shadow: none!important;
+    margin-top:20px;
+    padding-left:0;
+    padding-right:0;
+}
+input:focus { outline:none; }
+
+label.tst-md-label 				 {
+    color:#999!important;
+    font-weight:normal!important;
+    position:absolute;
+    pointer-events:none;
+    padding:0;
+    top:7px;
+    transition:0.2s ease all;
+}
+input:focus ~ label.tst-md-label,
+input:not([value=""]) ~ label.tst-md-label,
+input:valid ~ label.tst-md-label {
+    top:-15px;
+    font-size:0.8em;
+    color:#5264AE;
+}
+input:-webkit-autofill ~ label.tst-md-label {
+    top:-15px;
+    font-size:0.85em;
+    color:#5264AE;
+}
+.tst-md-input-line 	{ position:relative; display:block; }
+.tst-md-input-line:before,
+.tst-md-input-line:after 	{
+    content:'';
+    height:1px;
+    width:0;
+    bottom:1px;
+    position:absolute;
+    background:#5264AE;
+    transition:0.2s ease all;
+}
+.has-error  .tst-md-input-line:before,
+.has-error  .tst-md-input-line:after { background:var(--clr-danger); }
+input.is-invalid ~ .tst-md-input-line:before,
+input.is-invalid ~ .tst-md-input-line:after { background:var(--clr-danger)!important; }
+input:invalid ~ .tst-md-input-line:before,
+input:invalid ~ .tst-md-input-line:after { background:var(--clr-danger); }
+
+.tst-md-input-line:before { left:50%; }
+.tst-md-input-line:after { right:50%; }
+
+input:focus ~ .tst-md-input-line:before,
+input:focus ~ .tst-md-input-line:after { width:50%; }
+
+/*----------------------------------------------------------------------------*/
+/*-- VALIDATOR ERROR ---------------------------------------------------------*/
+/*----------------------------------------------------------------------------*/
+[data-type='validator-error'] {
+    font-size: 11px;
+    position: absolute;
+    z-index: 10;
+    margin-top: 2px;
+    color: #ffffff;
+    background: var(--bs-danger); /*  rgb(200, 53, 53); */
+    box-shadow: 0 6px 2px -2px rgba(211, 77, 77, 0.47);
+    padding: 4px 10px;
+    border-radius: 1px;
+    pointer-events: none;
+}
+
+[data-type='validator-error']:before {
+    content: '';
+    width: 0;
+    height: 0;
+    top: -5px;
+    position: absolute;
+    left: 6px;
+    border-left: 5px solid rgba(0, 0, 0, 0);
+    border-right: 5px solid rgba(0, 0, 0, 0);
+    border-bottom: 5px solid #c83535;
+}
+
+.form-control.is-invalid, 
+.was-validated .form-control:invalid {
+    background-image: none!important;
+}
