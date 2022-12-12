@@ -66,7 +66,7 @@
                         <th><?= $row['date'] ?></th>
                         <th><?= $row['type'] ?></th>
                         <th><?= $row['target'] ?></th>
-                        <th><?= $row['user'] ?></th>
+                        <th><?= $row['login'] ?></th>
                     </tr>                    
                 <?php } ?>
                 </tbody>
