@@ -77,4 +77,4 @@
 
 </main>
 
-<?php require_once './layouts/feet-ma.inc.php'; ?>
+<?php require_once './layouts/feet-main.inc.php'; ?>
