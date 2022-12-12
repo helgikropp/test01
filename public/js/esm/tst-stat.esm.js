@@ -1,7 +1,8 @@
-import { tstFetchPostForm, tstProcessError } from "./tst-lib.esm";
+//import { tstFetchPostForm, tstProcessError } from "./tst-lib.esm";
 
-export class TstPageB {
+export class TstStat {
     constructor() {
+      /*
         const elBtn = document.getElementById('down');
 
         elBtn.addEventListener('click', function (e) {
@@ -14,6 +15,7 @@ export class TstPageB {
             .catch(err => {
               tstProcessError(err);
             })
-        });        
+        });
+      */        
     }
 }

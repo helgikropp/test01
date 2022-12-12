@@ -1,8 +1,9 @@
-import { tstFetchPostForm, tstProcessError } from "./tst-lib.esm";
+//import { tstFetchPostForm, tstProcessError } from "./tst-lib.esm";
 
-export class TstPageB {
+export class TstReport {
     constructor() {
-        const elBtn = document.getElementById('down');
+/*        
+      const elBtn = document.getElementById('down');
 
         elBtn.addEventListener('click', function (e) {
           tstFetchPostForm('/routes.php',{ cmd: 'cmd_click', target: 'By a cow'});
@@ -14,6 +15,7 @@ export class TstPageB {
             .catch(err => {
               tstProcessError(err);
             })
-        });        
+        });
+*/                
     }
 }
