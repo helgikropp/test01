@@ -2,7 +2,7 @@
 <?php 
     require_once './layouts/head-main.inc.php';
 
-    \Core\Auth::store_event(\Core\Auth::EVT_PAGE_VIEW,'Stat');
+    \Core\Auth::store_event(\Core\Auth::EVT_PAGE_VIEW,'Stat page');
     $flt = $_SESSION['stat'] ?? [];
     $filtered = (empty($flt) || !count(array_filter(array_values($flt),fn($v)=>!empty($v)))) ? '' : ' <span  style="color:red;">(filtered)</span>';
     $users = \Core\Auth::get_users(); 

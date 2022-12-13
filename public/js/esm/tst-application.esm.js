@@ -1,5 +1,6 @@
 import { tstGoToUrl, tstOnError, tstOnSuccess, tstProcessError, tstFetchPostForm } from "./tst-lib.esm.js";
 import { TstLogin } from "./tst-login.esm.js";
+import { TstRegister } from "./tst-register.esm.js";
 import { TstPageA } from "./tst-page-a.esm.js";
 import { TstPageB } from "./tst-page-b.esm.js";
 import { TstStat } from "./tst-stat.esm.js";
@@ -55,6 +56,9 @@ export class TstApplication {
             switch (pageType) {
                 case 'login':
                     try { new TstLogin(); } catch (err) {/* libCatchError(err); */ }
+                    break;
+                case 'register':
+                    try { new TstRegister(); } catch (err) {/* libCatchError(err); */ }
                     break;
                 case 'page-a':
                     try { new TstPageA(); } catch (err) {/* libCatchError(err); */ }

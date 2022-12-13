@@ -44,7 +44,7 @@ switch ($cmd) {
         $_SESSION['stat']['user']   = $_POST['user'] ?? ''; 
         $_SESSION['stat']['action'] = $_POST['action'] ?? ''; 
         $response = Lib::create_response('RC_OK','','/views/stat.php',[]); 
-        Auth::store_event(Auth::EVT_BTN_CLICK,'Stat \ Set filters');
+        Auth::store_event(Auth::EVT_BTN_CLICK,'Show button on Stat page');
         break;
 
 //------------------------------------------------------------------------------------------------
@@ -62,6 +62,14 @@ case 'cmd_download':
         $response = Lib::create_response('RC_404','','',[]); 
     }   
     break;
+
+//------------------------------------------------------------------------------------------------
+case 'cmd_register':
+    unset($_SESSION['user']);
+    $response = Auth::register($_POST['uname'],$_POST['pwd1'],$_POST['pwd2'],$_POST['email'],(int)($_POST['is_admin']??'0')); 
+    Auth::store_event(Auth::EVT_REG,$response['code']==='RC_OK'?'Success':'Fail');
+    break;
+
 //------------------------------------------------------------------------------------------------
     default:
         $response = Lib::create_response('RC_CMD_UNKNOWN','','/views/login.php',[]); 
