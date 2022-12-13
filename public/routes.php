@@ -1,5 +1,4 @@
 <?php
-//session_start();
 require_once "../inc/init.inc.php";
 
 use Core\Lib;
@@ -27,9 +26,9 @@ switch ($cmd) {
 
 //------------------------------------------------------------------------------------------------
     case 'cmd_logout':
+        Auth::store_event(Auth::EVT_LOGOUT,'');
         Auth::logout();
         $response = Lib::create_response('RC_OK','','/views/login.php',[]); 
-        Auth::store_event(Auth::EVT_LOGOUT,'');
         break;
 
 //------------------------------------------------------------------------------------------------
@@ -45,7 +44,7 @@ switch ($cmd) {
         $_SESSION['stat']['user']   = $_POST['user'] ?? ''; 
         $_SESSION['stat']['action'] = $_POST['action'] ?? ''; 
         $response = Lib::create_response('RC_OK','','/views/stat.php',[]); 
-        Auth::store_event(Auth::EVT_BTN_CLICK,$_POST['target']);
+        Auth::store_event(Auth::EVT_BTN_CLICK,'Stat \ Set filters');
         break;
 
 //------------------------------------------------------------------------------------------------

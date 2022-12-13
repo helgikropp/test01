@@ -53,7 +53,7 @@ class Lib {
             self::send_ajax_response($response);
             exit;
         } elseif(!empty($response['goto']))  {
-            header('Location: /views/'.$response['goto'].'.php');
+            header('Location: '.$response['goto']);
             exit;          
         } else {
             echo '400 Bad Request';
