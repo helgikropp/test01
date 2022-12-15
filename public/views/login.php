@@ -29,7 +29,7 @@
         </div>
 
         <div class="mt-2 text-end small">
-          <a href="/view/register.php">Register</a>
+          <a href="/views/register.php">Register</a>
         </div>
 
         <div class="mt-3 text-center">

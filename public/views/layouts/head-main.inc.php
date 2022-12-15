@@ -42,6 +42,7 @@
     <script src="/js/lib/popper.min.js"></script>
     <script src="/js/lib/tempus-dominus/tempus-dominus.min.js"></script>
     <script src="/js/lib/tempus-dominus/plugins/customDateFormat.js"></script>
+    <script src="/js/lib/chartjs/chart.umd.min.js"></script>
     <title>test01</title>
   </head>
   <body>

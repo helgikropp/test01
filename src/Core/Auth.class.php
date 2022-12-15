@@ -74,7 +74,7 @@ class Auth {
         . " FROM users"
         . " WHERE login='".$uname."' AND pass='".md5(Lib::sanitize($pwd1,Lib::T_STR))."';";
       $db->query($qstr);
-      if(!$db->empty) {
+      if(!$db->empty()) {
         return Lib::create_response('RC_ACC_MISMATCH','','',[]); 
       }
 

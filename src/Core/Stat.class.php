@@ -89,10 +89,10 @@ SELECT CONCAT(
       ) AS sub_sql
     FROM events e
     LEFT JOIN event_types t ON t.id = e.type_id
-    WHERE e.type_id IN (4,5) AND LEFT(e.target,1) IN ('B','D','P')
   ), 
   ' FROM events e',
   ' LEFT JOIN event_types t ON t.id = e.type_id',
+  ' WHERE e.type_id IN (4,5) AND LEFT(e.target,1) IN (''B'',''D'',''P'')',
   ' GROUP BY 1'
 ) AS pivot_sql;
 SQL;
