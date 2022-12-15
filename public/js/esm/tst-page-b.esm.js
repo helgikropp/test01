@@ -5,8 +5,6 @@ export class TstPageB {
         const elBtn = document.getElementById('down');
 
         elBtn.addEventListener('click', function (e) {
-          tstFetchPostForm('/routes.php',{ cmd: 'cmd_click', target: 'By a cow'});
-
           tstLoadFileByUrl('/routes.php',{cmd:'cmd_download', file_name:'test01.exe'})
             .then((file) => {
               tstFetchPostForm('/routes.php',{ cmd: 'cmd_click', target: 'Download'});

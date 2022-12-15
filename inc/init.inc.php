@@ -1,4 +1,6 @@
 <?php
+//set_include_path(get_include_path() . PATH_SEPARATOR . dirname(__DIR__).'/vendor');
+
 use Core\Db;
 
 session_start();
@@ -10,3 +12,4 @@ spl_autoload_register(
     true, 
     false
 );
+

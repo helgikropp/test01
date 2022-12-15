@@ -45,4 +45,67 @@ class Stat {
       return $db->get_result_array();
     }
 
+    public static function get_report() : array
+    {
+      $db = Db::get_instance();
+      $rec = [
+        'chart' => [],
+        'table' => []
+      ];
+$qstr = <<<SQL
+SELECT CONCAT(
+  'SELECT DATE(e.date) AS `date`, ',
+  (
+    SELECT GROUP_CONCAT(DISTINCT CONCAT(
+      'SUM(
+        CASE WHEN CONCAT(t.name,'' '',e.target) = ''', CONCAT(t.name,' ',e.target), ''' THEN 1 ELSE 0 END) 
+        AS ', CONCAT('`',t.name,' ',e.target,'`'))
+      ) AS sub_sql
+    FROM events e
+    LEFT JOIN event_types t ON t.id = e.type_id
+    WHERE e.type_id IN (4,5) AND LEFT(e.target,1) IN ('B','D','P')
+  ), 
+  ' FROM events e',
+  ' LEFT JOIN event_types t ON t.id = e.type_id',
+  ' GROUP BY 1'
+) AS pivot_sql;
+SQL;
+      
+      $db->query($qstr);
+      $res = $db->get_result_array();
+      if($res[0]['pivot_sql']) {
+        $db->query($res[0]['pivot_sql']);
+        $rec['table'] = $db->get_result_array();
+      }
+
+$qstr = <<<SQL
+SELECT CONCAT(
+  'SELECT CONCAT(t.name,'' '',e.target) AS `action`, ',
+  (
+    SELECT GROUP_CONCAT(DISTINCT CONCAT(
+      'SUM(
+        CASE WHEN DATE(e.date) = ''', DATE(e.date), ''' THEN 1 ELSE 0 END) 
+        AS ', CONCAT('`',DATE(e.date),'`'))
+      ) AS sub_sql
+    FROM events e
+    LEFT JOIN event_types t ON t.id = e.type_id
+    WHERE e.type_id IN (4,5) AND LEFT(e.target,1) IN ('B','D','P')
+  ), 
+  ' FROM events e',
+  ' LEFT JOIN event_types t ON t.id = e.type_id',
+  ' GROUP BY 1'
+) AS pivot_sql;
+SQL;
+      
+      $db->query($qstr);
+      $res = $db->get_result_array();
+      if($res[0]['pivot_sql']) {
+        $db->query($res[0]['pivot_sql']);
+        $rec['chart'] = $db->get_result_array();
+      }
+
+      return $rec;
+    }
+
+
 }

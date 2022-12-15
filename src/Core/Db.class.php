@@ -13,6 +13,10 @@ class Db
   
   static private $instance = NULL;
 
+  public function get_connection() {
+    return $this->f_conn;
+  }
+
   /**
    * Undocumented function
    *
@@ -115,7 +119,7 @@ class Db
       try{
         $this->f_result = $this->f_conn->query($qstr);
         $this->f_count  = $this->f_result->num_rows;
-        $this->first();
+        //$this->first();
         return true;
       } catch(\Throwable $e) {
         $this->f_err = $e->getTraceAsString();

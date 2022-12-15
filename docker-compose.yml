@@ -31,9 +31,10 @@ services:
       - 8082:8080
     container_name: web
     restart: always
-#    volumes:
-#      - ../test001:/usr/share/nginx/html/test01
-#        - \\wsl$\Ubuntu\home\olden\www\portal.dev:/usr/share/nginx/html/portal.dev
+    volumes:
+      - ../test01:/usr/share/nginx/html/test01
+#        - \\wsl$\Ubuntu\home\olden\www\portal.dev:/usr/share/nginx/html/test001
+#        - \\wsl$\Ubuntu\mnt\c\_work\GitHub\test01:/usr/share/nginx/html/test01
 
     environment:
         - TZ=Europe/Kiev

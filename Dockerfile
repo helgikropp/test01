@@ -9,10 +9,11 @@ LABEL cache=no
 #COPY ./assets/logging.inc /etc/nginx/conf.d
 COPY ./assets/vhost_test01.local.conf /etc/nginx/conf.d
 #COPY ../test01/ /usr/share/nginx/html/test01/
-COPY ./sessions /usr/share/nginx/html/test01/sessions
-COPY ./public /usr/share/nginx/html/test01/public
-COPY ./inc /usr/share/nginx/html/test01/inc
-COPY ./src /usr/share/nginx/html/test01/src
+##COPY ./sessions /usr/share/nginx/html/test01/sessions
+##COPY ./public /usr/share/nginx/html/test01/public
+##COPY ./inc /usr/share/nginx/html/test01/inc
+##COPY ./src /usr/share/nginx/html/test01/src
+##COPY ./vendor /usr/share/nginx/html/test01/vendor
 #COPY ./assets/nginx/default.conf /etc/nginx/conf.d
 RUN apt -y update && apt -y upgrade && \
 apt -y install apt-transport-https lsb-release ca-certificates wget curl apt-utils && \

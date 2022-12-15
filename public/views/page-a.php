@@ -8,7 +8,7 @@
 <div class="row" style="margin-top:50px;">
   <div class="col-4"></div>  
   <div class="col-4">
-    <button id="cow" name="cow" class="btn btn-success w-100">By a cow</button>
+    <button id="cow" name="cow" class="btn btn-success w-100">Buy a cow</button>
 
     <div id="txt" class="alert alert-success" role="alert" hidden>Thank You!</div>
   </div>  
