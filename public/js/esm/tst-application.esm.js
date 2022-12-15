@@ -1,10 +1,10 @@
 import { tstGoToUrl, tstOnError, tstOnSuccess, tstProcessError, tstFetchPostForm } from "./tst-lib.esm.js";
-import { TstLogin } from "./tst-login.esm.js";
+import { TstLogin }    from "./tst-login.esm.js";
 import { TstRegister } from "./tst-register.esm.js";
-import { TstPageA } from "./tst-page-a.esm.js";
-import { TstPageB } from "./tst-page-b.esm.js";
-import { TstStat } from "./tst-stat.esm.js";
-import { TstReport } from "./tst-report.esm.js";
+import { TstPageA }    from "./tst-page-a.esm.js";
+import { TstPageB }    from "./tst-page-b.esm.js";
+import { TstStat }     from "./tst-stat.esm.js";
+import { TstReport }   from "./tst-report.esm.js";
 
 /* ===  TstApplication  ===================================================== */
 /* ========================================================================== */

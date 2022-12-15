@@ -1,6 +1,6 @@
 <?php
 return [
-    'DB_HOST' => 'db',
+    'DB_HOST' => 'test01db',
     'DB_NAME' => 'test01',
     'DB_USER' => 'root',
     'DB_PASS' => 'example',
