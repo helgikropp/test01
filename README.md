@@ -14,3 +14,13 @@ Default users сайту:
 
 build.cmd - пакетний командний файл Windows для збірки і запуску Docker-контейнерів
 sh.cmd    - пакетний командний файл Windows для входу в файлову систему контейнера test01web
+
+dependencies:
+- php 8.1
+- mysqli
+- js es6+
+- Bootstrap 5.2
+- Chart.js
+- FileSaver.js
+- SweetAlert2
+- tempus-dominus
